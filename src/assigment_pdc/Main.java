@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author ellagregory
  */
-public class Assigment_PDC {
+public class Main {
 
     /**
      * @param args the command line arguments
