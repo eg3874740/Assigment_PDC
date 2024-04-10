@@ -4,6 +4,8 @@
  */
 package assigment_pdc;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ellagregory
@@ -14,7 +16,14 @@ public class Assigment_PDC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Scanner scanner = new scanner(System.in);
+        System.out.println("Hello and welcome to our Hangman game ");
+        System.out.println("What is your name ");
+        String userName = scanner.nextLine();
+        System.out.println("Welcome" + userName + "!:)");
+        System.out.println("The game consists of three levels, level 1, 2 and 3");
+        
     }
     
 }
