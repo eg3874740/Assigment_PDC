@@ -17,7 +17,7 @@ public class Assigment_PDC {
      */
     public static void main(String[] args) {
         
-        Scanner scanner = new scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Hello and welcome to our Hangman game ");
         System.out.println("What is your name ");
         String userName = scanner.nextLine();
