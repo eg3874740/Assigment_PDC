@@ -1,0 +1,11 @@
+public class GameMenu {
+    
+    public static void displayMenu() {
+        System.out.println("===== Word Guessing Game =====");
+        System.out.println("1. Start Game");
+        System.out.println("2. View Scores");
+        System.out.println("3. Exit");
+    }
+    
+    
+}
