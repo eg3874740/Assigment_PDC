@@ -35,6 +35,42 @@ public class Game {
         displayWord = new StringBuilder(String.join(" ", "_".repeat(secretWord.length()).split("")));
     }
 
+    public void playGame() {
+        Scanner scanner = new Scanner(System.in);
+        while (remainingAttempts > 0 && displayWord.indexOf("_") != -1) {
+            System.out.println("\nWord: " + displayWord.toString());
+            System.out.println("Incorrect Guesses: " + incorrectGuesses.toString());
+            System.out.println("Guess a letter: ");
+            String input = scanner.nextLine().trim().toLowerCase();
+            if (input.isEmpty() || input.length() > 1 || !Character.isLetter(input.charAt(0))) {
+                System.out.println("Invalid input. Please enter a single letter.");
+                continue;
+            }
+            char guess = input.charAt(0);
+
+            if (correctGuesses.contains(guess) || incorrectGuesses.contains(guess)) {
+                System.out.println("Letter already guessed. Try a different one.");
+                continue;
+            }
+
+            if (secretWord.indexOf(guess) >= 0) {
+                correctGuesses.add(guess);
+                for (int i = 0; i < secretWord.length(); i++) {
+                    if (secretWord.charAt(i) == guess) {
+                        displayWord.setCharAt(i * 2, guess);
+                    }
+                }
+            } else {
+                incorrectGuesses.add(guess);
+                remainingAttempts--;
+                System.out.println("Incorrect! Remaining attempts: " + remainingAttempts);
+            }
+        }
+        endGame();
+    }
+
+    
+
     
 
     
