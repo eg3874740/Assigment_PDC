@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package assigment_pdc;
 
 import java.io.IOException;
@@ -10,10 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ellagregory
- */
+
 public class User {
     private String name;
     private int score;
@@ -38,7 +32,7 @@ public class User {
             }
         } catch (IOException e) {
             System.out.println("An error occurred while loading scores: " + e.getMessage());
-            // If the file does not exist, we'll start with a score of 0.
+            
         }
     }
 
