@@ -23,16 +23,25 @@ public class Main {
         User user = new User(username);
         System.out.println("Welcome" + userName + "!:)");
 
-        System.out.println("Please choose your level 1, 2 or 3 : ");
-            int level = scanner.nextInt();
-            scanner.nextLine();
+        boolean playLevelAgain = true;
+        while(playLevelAgain){
+              System.out.println("Please choose your level 1, 2 or 3 : ");
+              int level = scanner.nextInt();
+              scanner.nextLine();
         
         GameLevel gameLevel = new GameLevel(level);
         Game game = new Game(user, gameLevel);
         game.playGame();
 
+        System.out.println("Would you like to play another level or quit (yes/quit)");
+        String AnotherLevel = scanner.nextLine().toLowerCase();
+        if(AnotherLevel.equals("quit")){
+                playLevelAgain = false;   
+            }
+
             
-            
+        }   
+        
         scanner.close();
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());
