@@ -20,6 +20,16 @@ public class Game {
     private int remainingAttempts;
     private static final int MAX_ATTEMPTS = 6;
 
+    public Game(User user, GameLevel gameLevel) throws IOException {
+        this.user = user;
+        this.gameLevel = gameLevel;
+        this.correctGuesses = new HashSet<>();
+        this.incorrectGuesses = new HashSet<>();
+        initializeGame();
+    }
+
+    
+
   
   
 }
