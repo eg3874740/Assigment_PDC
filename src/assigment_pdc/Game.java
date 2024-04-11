@@ -28,6 +28,15 @@ public class Game {
         initializeGame();
     }
 
+    private void initializeGame() throws IOException {
+        secretWord = gameLevel.selectWord();
+        remainingAttempts = MAX_ATTEMPTS;
+        // Adding spaces between underscores for clarity.
+        displayWord = new StringBuilder(String.join(" ", "_".repeat(secretWord.length()).split("")));
+    }
+
+    
+
     
 
   
