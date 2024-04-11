@@ -12,9 +12,6 @@ import java.util.Scanner;
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
@@ -29,6 +26,20 @@ public class Main {
         System.out.println("Please choose your level 1, 2 or 3 : ");
             int level = scanner.nextInt();
             scanner.nextLine();
+        
+        GameLevel gameLevel = new GameLevel(level);
+        Game game = new Game(user, gameLevel);
+        game.playGame();
+
+            
+            
+        scanner.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
     
 }
+    
+    
