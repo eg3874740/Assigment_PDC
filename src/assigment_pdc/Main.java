@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
+    try (  
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello and welcome to our Hangman game ");
         System.out.println("The game consists of three levels, level 1, 2 and 3");
