@@ -27,8 +27,22 @@ public class Main {
         System.out.println("Welcome" + userName + "!:)");
 
         System.out.println("Please choose your level 1, 2 or 3 : ");
-            int level = scanner.nextInt();
-            scanner.nextLine();
+        int level = scanner.nextInt();
+        scanner.nextLine();
+
+        GameLevel gameLevel = new GameLevel(level);
+        Game game = new Game(user, gameLevel);
+        game.playGame();
+
+        scanner.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+}
+
     }
     
 }
