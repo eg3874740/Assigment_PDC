@@ -7,10 +7,6 @@ package assigment_pdc;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- *
- * @author ellagregory
- */
 public class Main {
 
     public static void main(String[] args) {
