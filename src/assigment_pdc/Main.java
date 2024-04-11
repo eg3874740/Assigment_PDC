@@ -4,6 +4,7 @@
  */
 package assigment_pdc;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
