@@ -69,12 +69,17 @@ public class Game {
         endGame();
     }
 
+    private void endGame() {
+        String guessedWord = displayWord.toString().replace(" ", "");
+        
+        if (guessedWord.equals(secretWord)) {
+            System.out.println("Congratulations! You've guessed the word: " + secretWord);
+            user.addScore(10); // Adjust scoring as needed.
+        } else {
+            System.out.println("Game Over! The secret word was: " + secretWord);
+        }
+        System.out.println(user.getName() + ", your score is: " + user.getScore());
+    }
+        
     
-
-    
-
-    
-
-  
-  
 }
