@@ -19,11 +19,16 @@ public class Main {
         
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello and welcome to our Hangman game ");
-        System.out.println("What is your name ");
-        String userName = scanner.nextLine();
-        System.out.println("Welcome" + userName + "!:)");
         System.out.println("The game consists of three levels, level 1, 2 and 3");
-        
+
+        System.out.print("Please enter your name: ");
+        String username = scanner.nextLine();
+        User user = new User(username);
+        System.out.println("Welcome" + userName + "!:)");
+
+        System.out.println("Please choose your level 1, 2 or 3 : ");
+            int level = scanner.nextInt();
+            scanner.nextLine();
     }
     
 }
