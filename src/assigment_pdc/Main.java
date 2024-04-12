@@ -7,7 +7,7 @@ public class Main {
         GameManager gameManager = new GameManager();
 
         //Introduction message
-        System.out.println("Welcome to our 'Guess the Word' game!");
+        System.out.println("Welcome to our Hangman game (without the hangman)!");
 
         // Ask the user for their name
         System.out.print("Please enter your name: ");
