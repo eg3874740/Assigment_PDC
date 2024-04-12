@@ -21,7 +21,6 @@ public class Words {
                 levelWords.put(level, words);
             } catch (IOException e) {
                 System.err.println("Failed to load words for level " + level + ": " + e.getMessage());
-                // Optionally, initialize with an empty list to prevent NullPointerException
                 levelWords.put(level, List.of());
             }
         }
