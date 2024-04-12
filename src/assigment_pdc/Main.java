@@ -1,10 +1,3 @@
-package Assignment_1;
-
-
-/**
- *
- * @author doris
- */
 // this is our main method to ask the user for inputs to reviece 
 import java.util.Scanner;
 
