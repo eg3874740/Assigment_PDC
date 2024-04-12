@@ -6,6 +6,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         GameManager gameManager = new GameManager();
 
+        //Introduction message
+        System.out.println("Welcome to our 'Guess the Word' game!");
+
         // Ask the user for their name
         System.out.print("Please enter your name: ");
         String username = scanner.nextLine();
