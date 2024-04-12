@@ -1,51 +1,57 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package assigment_pdc;
+package Assignment_1;
 
-import java.io.IOException;
+
+/**
+ *
+ * @author doris
+ */
+// this is our main method to ask the user for inputs to reviece 
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-    try {  
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello and welcome to our Hangman game ");
-        System.out.println("The game consists of three levels, level 1, 2 and 3");
+        GameManager gameManager = new GameManager();
 
+        // Ask the user for their name
         System.out.print("Please enter your name: ");
         String username = scanner.nextLine();
-        User user = new User(username);
-        System.out.println("Welcome" + userName + "!:)");
 
-        boolean playLevelAgain = true;
-        while(playLevelAgain){
-              System.out.println("Please choose your level 1, 2 or 3 : ");
-              int level = scanner.nextInt();
-              scanner.nextLine();
-        
-        GameLevel gameLevel = new GameLevel(level);
-        Game game = new Game(user, gameLevel);
-        game.playGame();
-
-        System.out.println("Would you like to play another level or quit (yes/quit)");
-        String AnotherLevel = scanner.nextLine().toLowerCase();
-        if(AnotherLevel.equals("quit")){
-                playLevelAgain = false;   
+        boolean play = true;
+        while (play) {
+            GameMenu.displayMenu();
+            System.out.println("Choose an option: " + username + "!");
+            String option = scanner.nextLine();
+            switch (option) {
+                case "1":
+                    System.out.println("Please choose your level 1, 2, or 3: ");
+                    int level = Integer.parseInt(scanner.nextLine());
+                    if (level < 1 || level > 3) {
+                        System.out.println("Invalid level. Please choose 1, 2, or 3.");
+                        break;
+                    }
+                    User user = new User(username); // Use the user's name
+                    gameManager.addUser(user);
+                    gameManager.startGame(user, level);
+                    break;
+                case "2":
+                    System.out.println("Scores:");
+                    gameManager.displayScores();
+                    break;
+                case "3":
+                    System.out.println("Viewing Game Statistics:");
+                    gameManager.displayGameStats(); // Call to display game statistics
+                    break;
+                case "4":
+                    play = false;
+                    break;
+                default:
+                    System.out.println("Invalid option. Please choose again.");
+                    break;
             }
-
-            
-        }   
-        
-        scanner.close();
-        } catch (IOException e) {
-            System.out.println("An error occurred: " + e.getMessage());
-            e.printStackTrace();
         }
+
+        System.out.println("Thank you for playing!");
+        scanner.close();
     }
-    
 }
-    
-    
