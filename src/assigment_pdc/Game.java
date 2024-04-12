@@ -9,7 +9,6 @@ import java.util.Set;
  *
  * @author doris
  */
-
 public class Game {
     private User user;
     private GameLevel gameLevel;
@@ -66,7 +65,9 @@ public class Game {
                 System.out.println("Incorrect! Remaining attempts: " + remainingAttempts);
             }
         }
+
         endGame();
+        
     }
 
     private void endGame() {
@@ -80,6 +81,4 @@ public class Game {
         }
         System.out.println(user.getName() + ", your score is: " + user.getScore());
     }
-        
-    
 }
