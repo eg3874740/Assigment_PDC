@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+//The GameManager class manages users, games, game statistics, and the word bank for the Hangman game.
 public class GameManager {
     private final List<User> users;
     private final List<Game> games;
@@ -18,6 +19,13 @@ public class GameManager {
         users.add(user);
     }
 
+     /**
+     * Starts a new game for the specified user at the given level.
+     * 
+     * @param user the user who will play the game
+     * @param level the difficulty level of the game
+     */
+    
     public void startGame(User user, int level) {
         GameLevel gameLevel = new GameLevel(level, wordBank);
         Game game = new Game(user, gameLevel);
