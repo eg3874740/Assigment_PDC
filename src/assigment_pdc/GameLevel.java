@@ -12,13 +12,8 @@ public class GameLevel {
 
     public String selectWord() {
         if (words.isEmpty()) {
-            System.out.println("No words loaded for level " + level);
-            return ""; // Return an empty string if no words are loaded
+            return "";
         }
         return words.get(new Random().nextInt(words.size()));
     }
 }
-
-
-
-
