@@ -51,3 +51,4 @@ public class Main {
         scanner.close();
     }
 }
+//Second part of the assigment now we have to implement our project into a GUI interFace 
