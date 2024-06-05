@@ -1,0 +1,120 @@
+package Assignment_1;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.Set;
+import java.util.HashSet;
+
+public class GameTest {
+    
+    private Game game;
+
+    public GameTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+        
+        User user = new User("testuser");
+        Words words = new Words(); 
+        GameLevel gameLevel = new GameLevel(1, words); 
+        
+        
+        game = new Game(user, gameLevel);
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    @Test
+    public void testPlayGameCorrectGuess() {
+        System.out.println("playGameCorrectGuess");
+        char guess = 't';
+        game.playGame(guess);
+        assertTrue(game.getDisplayWord().contains("t"));
+    }
+
+    @Test
+    public void testPlayGameIncorrectGuess() {
+        System.out.println("playGameIncorrectGuess");
+        char guess = 'x';
+        game.playGame(guess);
+        assertTrue(game.getIncorrectGuesses().contains(guess));
+        assertEquals(5, game.getRemainingAttempts());
+    }
+
+    @Test
+    public void testGetDisplayWord() {
+        System.out.println("getDisplayWord");
+        game.playGame('t');
+        String result = game.getDisplayWord();
+        assertTrue(result.contains("t"));
+    }
+
+    @Test
+    public void testGetIncorrectGuesses() {
+        System.out.println("getIncorrectGuesses");
+        game.playGame('x');
+        Set<Character> expResult = new HashSet<>();
+        expResult.add('x');
+        Set<Character> result = game.getIncorrectGuesses();
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testGetRemainingAttempts() {
+        System.out.println("getRemainingAttempts");
+        game.playGame('x');
+        int expResult = 5;
+        int result = game.getRemainingAttempts();
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testIsGameOver() {
+        System.out.println("isGameOver");
+        for (int i = 0; i < 6; i++) {
+            game.playGame('x');
+        }
+        assertTrue(game.isGameOver());
+    }
+
+    @Test
+    public void testIsWordGuessed() {
+        System.out.println("isWordGuessed");
+        String secretWord = game.getSecretWord();
+        for (char c : secretWord.toCharArray()) {
+            game.playGame(c);
+        }
+        assertTrue(game.isWordGuessed());
+    }
+
+    @Test
+    public void testGetSecretWord() {
+        System.out.println("getSecretWord");
+        String expResult = "testword";
+        String result = game.getSecretWord();
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testGetUser() {
+        System.out.println("getUser");
+        User result = game.getUser();
+        assertNotNull(result);
+        assertEquals("testuser", result.getName());
+    }
+}
