@@ -92,3 +92,15 @@ private void startGame() {
         currentGame = gameManager.getCurrentGame(currentUser);
         updateGameArea();
     }
+private void makeGuess() {
+        if (currentGame == null) {
+            return;
+        }
+        String guessText = guessField.getText();
+        if (guessText.length() != 1) {
+            return; // Invalid input, we expect a single character
+        }
+        char guess = guessText.charAt(0);
+        currentGame.playGame(guess);
+        updateGameArea();
+    }
