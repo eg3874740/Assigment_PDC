@@ -1,4 +1,9 @@
+//The GameMenu class provides methods to display the game menu and game statistics.
+
 public class GameMenu {
+
+//Displays the main menu of the Word Guessing Game.
+//The menu includes options to start the game, view game statistics, and exit.
     
     public static void displayMenu() {
         System.out.println("===== Word Guessing Game =====");
@@ -7,6 +12,8 @@ public class GameMenu {
         System.out.println("4. Exit");
     }
 
+//Displays the game statistics using the provided GameStats object.
+//stats the GameStats object containing the statistics to be displayed
     public static void displayStats(GameStats stats) {
         stats.displayStats();
     }
