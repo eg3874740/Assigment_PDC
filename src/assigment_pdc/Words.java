@@ -4,6 +4,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class Words {
     
     private Map<Integer, List<String>> levelWords;
