@@ -52,3 +52,5 @@ public class Main {
     }
 }
 //Second part of the assigment now we have to implement our project into a GUI interFace 
+// lets use the code from labs as a platform for our new code 
+// i am goimg to create a database first for our code called ella&doris 
