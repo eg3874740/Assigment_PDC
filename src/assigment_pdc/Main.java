@@ -1,4 +1,6 @@
 // ENTRY POINT OF MY GUI
+
+//this is our main method to ask the user for inputs
 public class Main {
     public static void main(String[] args) {
         
