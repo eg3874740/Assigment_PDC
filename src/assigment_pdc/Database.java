@@ -15,3 +15,17 @@ public class Database {
             ex.printStackTrace();
         }
     }
+public void dbsetup() {
+        try {
+            Statement statement = conn.createStatement();
+            String tableName = "UserInfo";
+
+            if (!checkTableExisting(tableName)) {
+                statement.executeUpdate("CREATE TABLE " + tableName + " (userid VARCHAR(12), password VARCHAR(12), score INT)");
+            }
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
