@@ -10,3 +10,8 @@ public class HangmanGUI extends JFrame {
     private JTextArea gameArea;
     private User currentUser;
     private Game currentGame;
+
+public HangmanGUI() {
+        gameManager = new GameManager();
+        initialize();
+    }
