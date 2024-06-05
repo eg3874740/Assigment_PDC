@@ -104,3 +104,20 @@ private void makeGuess() {
         currentGame.playGame(guess);
         updateGameArea();
     }
+
+private void updateGameArea() {
+        if (currentGame == null) {
+            return;
+        }
+        StringBuilder gameText = new StringBuilder();
+        gameText.append("Word: ").append(currentGame.getDisplayWord()).append("\n");
+        gameText.append("Incorrect Guesses: ").append(currentGame.getIncorrectGuesses()).append("\n");
+        gameText.append("Remaining Attempts: ").append(currentGame.getRemainingAttempts()).append("\n");
+        if (currentGame.isGameOver()) {
+            gameText.append("Game Over! The word was: ").append(currentGame.getSecretWord()).append("\n");
+        } else if (currentGame.isWordGuessed()) {
+            gameText.append("Congratulations! You guessed the word!\n");
+        }
+        gameArea.setText(gameText.toString());
+    }
+}
