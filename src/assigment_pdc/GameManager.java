@@ -1,48 +1,47 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
     private final List<User> users;
     private final List<Game> games;
-    private final GameStats gameStats; 
-    Words wordBank = new Words();
+    private final GameStats gameStats;
+    private final Words wordBank;
 
     public GameManager() {
         this.users = new ArrayList<>();
         this.games = new ArrayList<>();
-        this.gameStats = new GameStats(); 
+        this.gameStats = new GameStats();
+        this.wordBank = new Words();
     }
 
-    // Adds a user to the game system
     public void addUser(User user) {
         users.add(user);
     }
 
-    // Starts a new game for a user at a specified level
     public void startGame(User user, int level) {
-        try {
-            GameLevel gameLevel = new GameLevel(level, wordBank);
-            Game game = new Game(user, gameLevel);
-            games.add(game);
-            game.playGame();
-        } catch (IOException e) {
-            System.out.println("An error occurred while starting the game: " + e.getMessage());
-        }
+        GameLevel gameLevel = new GameLevel(level, wordBank);
+        Game game = new Game(user, gameLevel);
+        games.add(game);
     }
 
-    // Displays the scores of all users
+    public Game getCurrentGame(User user) {
+        for (Game game : games) {
+            if (game.getUser().equals(user)) {
+                return game;
+            }
+        }
+        return null;
+    }
+
     public void displayScores() {
         Scoreboard scoreboard = new Scoreboard(users);
         scoreboard.displayScores();
     }
 
-    // Gets the list of users
     public List<User> getUsers() {
         return users;
     }
 
-    // Displays game statistics
     public void displayGameStats() {
         gameStats.displayStats();
     }
