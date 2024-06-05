@@ -83,3 +83,12 @@ private void initialize() {
 
         setVisible(true);
     }
+private void startGame() {
+        String username = usernameField.getText();
+        int level = Integer.parseInt(levelField.getText());
+        currentUser = new User(username);
+        gameManager.addUser(currentUser);
+        gameManager.startGame(currentUser, level);
+        currentGame = gameManager.getCurrentGame(currentUser);
+        updateGameArea();
+    }
