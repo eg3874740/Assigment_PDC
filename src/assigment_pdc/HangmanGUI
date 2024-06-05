@@ -2,6 +2,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The HangmanGUI class represents the graphical user interface for the Hangman game.
+ * It extends JFrame to create a window for the game.
+ */
+
 public class HangmanGUI extends JFrame {
     private GameManager gameManager;
     private JTextField usernameField;
@@ -11,17 +16,20 @@ public class HangmanGUI extends JFrame {
     private User currentUser;
     private Game currentGame;
 
+//Constructs the HangmanGUI and initializes the GUI components.
 public HangmanGUI() {
         gameManager = new GameManager();
         initialize();
     }
 
+//Initializes the GUI components and sets up the layout and event listeners.
 private void initialize() {
         setTitle("Hangman Game");
         setSize(500, 420);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
+        // Username label and text field
         JLabel usernameLabel = new JLabel("Username:");
         usernameLabel.setBounds(50, 20, 80, 25);
         add(usernameLabel);
@@ -30,6 +38,7 @@ private void initialize() {
         usernameField.setBounds(150, 20, 165, 25);
         add(usernameField);
 
+        // Level label and text field
         JLabel levelLabel = new JLabel("Level:");
         levelLabel.setBounds(50, 60, 80, 25);
         add(levelLabel);
@@ -38,16 +47,19 @@ private void initialize() {
         levelField.setBounds(150, 60, 165, 25);
         add(levelField);
 
+        // Start game button
         JButton startButton = new JButton("Start Game");
         startButton.setBounds(150, 100, 150, 25);
         add(startButton);
 
+        // Start game button action listener
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startGame();
             }
         });
 
+        // Guess label and text field
         JLabel guessLabel = new JLabel("Enter Guess:");
         guessLabel.setBounds(50, 140, 80, 25);
         add(guessLabel);
@@ -56,26 +68,33 @@ private void initialize() {
         guessField.setBounds(150, 140, 50, 25);
         add(guessField);
 
+        // Guess button
         JButton guessButton = new JButton("Guess");
         guessButton.setBounds(210, 140, 100, 25);
         add(guessButton);
 
+        // Guess button action listener
         guessButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 makeGuess();
             }
         });
 
+        
+        // Quit button
         JButton quitButton = new JButton("Quit");
         quitButton.setBounds(320, 140, 100, 25); 
         add(quitButton);
 
+        // Quit button action listener
         quitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0); 
             }
         });
 
+        
+        // Game area text area
         gameArea = new JTextArea();
         gameArea.setBounds(50, 180, 300, 150);
         gameArea.setEditable(false);
@@ -83,6 +102,8 @@ private void initialize() {
 
         setVisible(true);
     }
+
+//Starts a new game using the provided username and level.
 private void startGame() {
         String username = usernameField.getText();
         int level = Integer.parseInt(levelField.getText());
@@ -92,6 +113,8 @@ private void startGame() {
         currentGame = gameManager.getCurrentGame(currentUser);
         updateGameArea();
     }
+
+//Processes a user's guess and updates the game area.
 private void makeGuess() {
         if (currentGame == null) {
             return;
@@ -105,6 +128,7 @@ private void makeGuess() {
         updateGameArea();
     }
 
+//Updates the game area to reflect the current state of the game.
 private void updateGameArea() {
         if (currentGame == null) {
             return;
