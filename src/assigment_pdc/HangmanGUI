@@ -1,0 +1,12 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class HangmanGUI extends JFrame {
+    private GameManager gameManager;
+    private JTextField usernameField;
+    private JTextField levelField;
+    private JTextField guessField;
+    private JTextArea gameArea;
+    private User currentUser;
+    private Game currentGame;
